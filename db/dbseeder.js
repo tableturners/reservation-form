@@ -6,7 +6,7 @@ const seedRestaurantsData = () => {
     const name = faker.random.word();
     const dates = faker.date.future();
     const timeslots = ['5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM']
-    const partySize = [1, 2, 3, 4, 5, 6, 7, 8];    
+    const partySize = faker.random.number(20);    
     db.Restaurant.create({
       _id: i,
       name: name,

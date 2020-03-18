@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/turntable', { useNewUrlParser: true, useUnifiedTopology: true });
 
-const restaurantSchema = new mongoose.Schema({
+const { Schema } = mongoose;
+
+const restaurantSchema = new Schema({
   _id: Number,
   name: String,
   dates: [String],
@@ -22,10 +24,7 @@ const get = (query = {}, callback) => {
   });
 };
 
-module.exports = {
-  Restaurant,
-  get,
-};
+module.exports = Restaurant;
 
 
 

@@ -11,7 +11,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use('/static', express.static(path.join(__dirname, '../client/dist')))
+app.use('/', express.static(path.join(__dirname, '../client/dist')))
 app.use('/api/restaurants', routes.restaurants)
 const port = process.env.PORT || '3000';
 

@@ -5,5 +5,5 @@ const router = express.Router();
 
 router.route(['/', '/:id'])
     .get(controllers.restaurants.get);
-
+// console.log('here', controllers.restaurants.get)
 module.exports = router;

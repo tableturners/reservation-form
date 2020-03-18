@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
-import PartySizeDD from './PartySizeDD.jsx';
-import Calendar from './Calendar.jsx';
-import TimesDD from './imesDD.jsx/index.js';
-
-
-const axios = require('axios');
-
+import PartySizeDD from './PartySizeDD';
+import Calendar from './Calendar';
+import TimesDD from './TimesDD';
+import models from '../models';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = ({
-      times: []
-
-    })
+    this.state = {
+      restaurants: [],
+    };
   }
 
-  // componentDidMount() {
+  componentDidMount() {
+    console.log('componentdidmoujnt`')
+    this.getAllRestaurants();
+  }
 
-  // }
-
-  // async function getRestaurantData() {
-  //   try {
-  //     const response = await axios.get('/restaurants');
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+  getAllRestaurants() {
+    console.log('hit')
+    models.reservations.get()
+    .then((reservations) => {
+      this.setState({
+        restaurants: reservations,
+      });
+    });
+  }
 
   render() {
     return (
@@ -38,11 +36,13 @@ class App extends Component {
         </h3>
         </div>
 
-        <div><PartySizeDD partySize={this.state.restaurants.partySize}/></div>
+        <div><PartySizeDD partySize={this.state.restaurants}/></div>
         <div><Calendar/></div>
-        <div><TimesDD timeSlots={this.state.restaurant.timeSlots}/></div>
+        <div><TimesDD timeSlots={this.state.restaurants}/></div>
 
       </div>
     );
   }
 }
+
+export default App;

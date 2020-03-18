@@ -14,17 +14,6 @@ const restaurantSchema = new Schema({
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-const get = (query = {}, callback) => {
-  console.log('I am like here')
-  Restaurant.find(query, { __v: 0 }, (err, success) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, success[0]);
-    }
-  });
-};
-
 module.exports = Restaurant;
 
 

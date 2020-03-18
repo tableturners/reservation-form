@@ -13,12 +13,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('componentdidmoujnt`')
     this.getAllRestaurants();
   }
 
   getAllRestaurants() {
-    console.log('hit')
     models.reservations.get()
     .then((reservations) => {
       this.setState({
@@ -36,9 +34,9 @@ class App extends Component {
         </h3>
         </div>
 
-        <div><PartySizeDD partySize={this.state.restaurants}/></div>
+        <div><PartySizeDD/></div>
         <div><Calendar/></div>
-        <div><TimesDD timeSlots={this.state.restaurants}/></div>
+        <div><TimesDD/></div>
 
       </div>
     );

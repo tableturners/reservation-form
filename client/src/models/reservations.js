@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 const reservations = {
-    get: () => axios.get('api/restaurants').then(({data}) => data),
+    get: (id) => axios.get(`api/restaurants/${id}`).then(({data}) => data).catch(error => {console.log(error.response)}),
 };
 export default reservations;

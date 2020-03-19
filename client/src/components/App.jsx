@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PartySizeDD from './PartySizeDD';
+import PartySizeSelectBox from './PartySizeSelectBox';
 import Calendar from './Calendar';
-import TimesDD from './TimesDD';
+import TimeSlotsSelectBox from './TimeSlotsSelectBox';
 import models from '../models';
 
 class App extends Component {
@@ -13,14 +13,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getAllRestaurants();
+    this.getRestaurant(Math.floor(Math.random() * 100));
   }
 
-  getAllRestaurants() {
-    models.reservations.get()
-    .then((reservations) => {
+  getRestaurant(id) {
+    models.reservations.get(id)
+    .then((restaurants) => {
+      console.log('resos', restaurants)
       this.setState({
-        restaurants: reservations,
+        restaurants,
       });
     });
   }
@@ -34,9 +35,9 @@ class App extends Component {
         </h3>
         </div>
 
-        <div><PartySizeDD/></div>
+        <div><PartySizeSelectBox/></div>
         <div><Calendar/></div>
-        <div><TimesDD/></div>
+        <div><TimeSlotsSelectBox restaurants={this.state.restaurants}/></div>
 
       </div>
     );

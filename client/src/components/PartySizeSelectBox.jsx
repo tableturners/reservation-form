@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-  class PartySizeDD extends Component {
+  class PartySizeSelectBox extends Component {
     constructor(props) {
       super(props);
-      this.state = {value: 'coconut'};
+      this.state = {value: ''};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,4 +51,4 @@ import React, { Component } from 'react';
     }
   }
 
-  export default PartySizeDD;
+  export default PartySizeSelectBox;

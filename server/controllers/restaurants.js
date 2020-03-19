@@ -2,10 +2,11 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res) => {
-        if (req.params.id === undefined) {
-            models.restaurants.get()
-            .then((restaurants) => {
-                res.send(restaurants);
+        const { id } = req.params;
+        // if (req.params.id === undefined) {
+            models.restaurants.get(id)
+            .then((restaurant) => {
+                res.send(restaurant);
             })
             .catch((err) => {
                 console.log(err);
@@ -13,4 +14,4 @@ module.exports = {
             });
         }
     }
-}
+// }

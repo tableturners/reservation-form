@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PartySizeSelectBox from './PartySizeSelectBox';
 import Calendar from './Calendar';
-import TimeSlotsSelectBox from './TimeSlotsSelectBox';
+import DropDownList from './DropdownComponent';
 import models from '../models';
 
 class App extends Component {
@@ -34,10 +33,14 @@ class App extends Component {
           <span>Make a reservation</span>
         </h3>
         </div>
-
-        <div><PartySizeSelectBox/></div>
+        <div>
+          <DropDownList/>
+        </div>
+      
+        {/* <div style={{margin: '30px', position: 'relative'}}><PartySizeSelectBox/></div>
         <div><Calendar/></div>
-        <div><TimeSlotsSelectBox restaurants={this.state.restaurants}/></div>
+        <span><TimeSlotsSelectBox restaurants={this.state.restaurants}/></span>
+        <input type="submit" value="Find Table" /> */}
 
       </div>
     );

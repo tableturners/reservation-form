@@ -1,16 +1,53 @@
 import React, { Component } from 'react';
 import Calendar from './Calendar';
-import DropDownList from './DropdownComponent';
 import models from '../models';
+import PartySelector from './PartySelector';
+import TimeSelector from './TimeSelector';
+import styled from 'styled-components';
+import Title from './Title';
+import DateSelector from './DateSelector';
 
+
+const AppContainer = styled.div`
+  height: 146px;
+  width: 295px;
+  margin-top: 32px;
+  position: sticky;
+  top: 75px;x
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurants: [],
-    };
-  }
+      dateSelected: 'March 20',
+      partySelected: null, 
+      timeSelected: null,
 
+    };
+    this.onDateClick = this.onDateClick.bind(this);
+    this.onPartySelect = this.onPartySelect.bind(this);
+    this.onTimeSelect = this.onTimeSelect.bind(this);
+  }
+  onDateClick(date) {
+    this.setState({
+      dateSelected: date,
+    })
+  }
+  onPartySelect(party) {
+    this.setState({
+      partySelected: party,
+    })
+  }
+  onTimeSelect(time) {
+    this.setState({
+      timeSelected: time,
+    })
+  }
   componentDidMount() {
     this.getRestaurant(Math.floor(Math.random() * 100));
   }
@@ -27,23 +64,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div className="make-reservation"> 
-        <h3>
-          <span>Make a reservation</span>
-        </h3>
-        </div>
-        <div>
-          <DropDownList/>
-        </div>
-      
-        {/* <div style={{margin: '30px', position: 'relative'}}><PartySizeSelectBox/></div>
-        <div><Calendar/></div>
-        <span><TimeSlotsSelectBox restaurants={this.state.restaurants}/></span>
-        <input type="submit" value="Find Table" /> */}
-
-      </div>
-    );
+      <AppContainer>
+        <Title/>
+        <PartySelector partySelected={this.state.partySelected} onPartySelect={this.onPartySelect}/>
+        <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
+        {/* <Calendar dateSelected={this.state.dateSelected} onDateClick= {this.onDateClick}/> */}
+        <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
+      </AppContainer>
+    )
   }
 }
 

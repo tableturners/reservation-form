@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')))
 app.use('/api/restaurants', routes.restaurants)
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '3001';
 
 
 app.listen(port, () => console.log(`Server running on localhost ${port}`));

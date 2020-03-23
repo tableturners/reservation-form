@@ -8,11 +8,12 @@ height: 30px;
 padding: 5px 24px 5px 30px;
 margin-left: 3px;
 border-radius: 3px;
-border-color: #cccccc;
+border-color: #ffffff;
 background-color: white;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 10px;
 display: flex;
+border: solid 1px;
 `;
 
 const DateSelector = ({ dateSelected, onDateClick }) => { 

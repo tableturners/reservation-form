@@ -13,7 +13,7 @@ const AppContainer = styled.div`
   width: 295px;
   margin-top: 32px;
   position: sticky;
-  top: 75px;x
+  top: 75px;
   background: white;
   display: flex;
   flex-direction: column;

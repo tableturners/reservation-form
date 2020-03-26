@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './Calendar';
 
+const DateSelectorWrapper = styled.div`
+  display: flex;
+  height: 35px;
+  width: 288px;
+  flex-basis: auto;
+`;
+
 const SelectWrapper = styled.div`
 width: 200px;
 height: 30px;
@@ -13,6 +20,7 @@ background-color: white;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 10px;
 display: flex;
+order: 3;
 border: solid 1px;
 `;
 

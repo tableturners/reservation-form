@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const TimeSelectorWrapper = styled.div`
-  display: inline-block;
 `;
 
 const SelectWrapper = styled.select`
@@ -23,7 +22,6 @@ const TimeSelector = (props) => {
     const{ onTimeSelect } = props;
     
     return (   
-        <TimeSelectorWrapper> 
             <label htmlFor={label}>
                 {/* {label} */}
                 <SelectWrapper 
@@ -38,7 +36,6 @@ const TimeSelector = (props) => {
                         <option key={item} value={item}>{item}</option>)}
                 </SelectWrapper>
             </label>
-            </TimeSelectorWrapper>
     )
 }
 

@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const PartySelectorWrapper = styled.div`
-  display: inline-block;
+  display: flex;
+  height: 35px;
+  width: 288px;
+  flex-basis: 100%;
 `;
 
 const SelectWrapper = styled.select`
+  display: flex;
   width: 200px;
   height: 30px;
   padding: 5px 24px 5px 30px;

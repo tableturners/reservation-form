@@ -6,28 +6,56 @@ import TimeSelector from './TimeSelector';
 import styled from 'styled-components';
 import Title from './Title';
 import DateSelector from './DateSelector';
-
+import Button from './Button.jsx';
+import TimesList from './TimesList';
 
 const AppContainer = styled.div`
-  height: 146px;
-  width: 295px;
+  display: flex;
+  height: 227px;
+  width: 288px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  align-content: space-around;
   margin-top: 32px;
   position: sticky;
   top: 75px;
   background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  box-shadow: none;
 `;
+
+const Box2 = styled.div`
+  margin: 0;
+  padding: 0;
+  // flex-direction: row;
+
+`; 
+
+const A = styled.div`
+  //display : block;
+  width: 200px;
+`;
+
+  // const Button = styled.button`
+  //   font-family: sans-serif;
+  //   font-size: 1rem;
+  //   border: none;
+  //   border-radius: 5px;
+  //   padding: 7px  10px;
+  //   background: red;
+  //   color: #fff;
+  //   &:hover {
+  //     background: green;
+  //   }
+  // `;
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dateSelected: 'March 20',
+      dateSelected: '',
       partySelected: null, 
       timeSelected: null,
-
     };
     this.onDateClick = this.onDateClick.bind(this);
     this.onPartySelect = this.onPartySelect.bind(this);
@@ -64,13 +92,17 @@ class App extends Component {
 
   render() {
     return (
-      <AppContainer>
-        <Title/>
-        <PartySelector partySelected={this.state.partySelected} onPartySelect={this.onPartySelect}/>
-        <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
-        {/* <Calendar dateSelected={this.state.dateSelected} onDateClick= {this.onDateClick}/> */}
-        <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
-      </AppContainer>
+        <AppContainer>
+          <Title/>
+          <A>
+          <PartySelector partySelected={this.state.partySelected} onPartySelect={this.onPartySelect}/>
+          </A>
+          <Box2>
+            <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
+            <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
+          </Box2>
+          <Button/>
+        </AppContainer>
     )
   }
 }

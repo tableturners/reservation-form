@@ -2,21 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TitleWrapper = styled.div`
-  padding: 0.5em;
-  margin: 0.5em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  color: #333333; 
-  // height: 47px;
-  // width: 288px;
+  background-color: #fff;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 48px;
+  justify-content: flex-end;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: center;
+  text-size-adjust: 100%;  
 `;
 
-const HeaderWrapper = styled.h2`
-  height: 24px;
-  width: 288 px;
-  font-size: 15px;
+const HeaderWrapper = styled.h3`
+  border-bottom: 1px solid #d8d9db;
+  height: 48px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
 `;
 
 const Title = () => (

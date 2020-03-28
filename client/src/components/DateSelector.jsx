@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './Calendar';
 
-const DateSelectorWrapper = styled.div`
-  display: flex;
-  height: 35px;
-  width: 288px;
-  flex-basis: auto;
-`;
+// const DateSelectorWrapper = styled.div`
+//   display: flex;
+//   height: 35px;
+//   width: 288px;
+//   flex-basis: auto;
+// `;
 
 const SelectWrapper = styled.div`
-width: 200px;
+width: 100%;
 height: 30px;
 padding: 5px 24px 5px 30px;
 margin-left: 3px;
@@ -21,7 +21,7 @@ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 10px;
 display: flex;
 order: 3;
-border: solid 1px;
+border-bottom: solid 1px;
 `;
 
 const DateSelector = ({ dateSelected, onDateClick }) => { 

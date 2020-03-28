@@ -5,9 +5,9 @@ const TimeSelectorWrapper = styled.div`
 `;
 
 const SelectWrapper = styled.select`
-  width: 200px;
-  height: 30px;
-  padding: 5px 24px 5px 30px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
   border-radius: 3px;
   border-color: #cccccc;
   background-color: white;

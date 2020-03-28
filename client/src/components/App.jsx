@@ -10,8 +10,18 @@ import Button from './Button.jsx';
 import TimesList from './TimesList';
 
 const AppContainer = styled.div`
-  display: flex;
+  display: block;
   height: 227px;
+  font-family: sans-serif;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  text-size-adjust: 100%;
   width: 288px;
   flex-direction: column;
   flex-wrap: wrap;
@@ -22,20 +32,52 @@ const AppContainer = styled.div`
   position: sticky;
   top: 75px;
   background: white;
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(153,153,153,.4);
+  color: -internal-root-color;
+  
 `;
 
-const Box2 = styled.div`
-  margin: 0;
-  padding: 0;
-  // flex-direction: row;
-
+const Box = styled.div`
+  padding: 8px 16px 16px 16px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  display: block;
 `; 
 
-const A = styled.div`
-  //display : block;
-  width: 200px;
+const InputBox = styled.div`
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  max-height: 150px;
+
 `;
+
+const PartyWrapper = styled.div`
+  display: block;
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+`;
+
+const DateTimeWrapper = styled.div`
+  display: flex;
+  flex-basis: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-left: 8px;
+`;
+
+const DateWrapper = styled.div`
+  display: block;
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+`;
+
 
   // const Button = styled.button`
   //   font-family: sans-serif;
@@ -94,14 +136,22 @@ class App extends Component {
     return (
         <AppContainer>
           <Title/>
-          <A>
-          <PartySelector partySelected={this.state.partySelected} onPartySelect={this.onPartySelect}/>
-          </A>
-          <Box2>
-            <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
-            <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
-          </Box2>
-          <Button/>
+          <Box>
+            <InputBox>
+              <PartyWrapper>
+                <PartySelector partySelected={this.state.partySelected} onPartySelect={this.onPartySelect}/>
+              </PartyWrapper>
+              <DateTimeWrapper>
+                <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
+                <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
+              </DateTimeWrapper>
+            </InputBox>
+            {/* <ButtonBox>
+              <Button/>
+            </ButtonBox>
+            <BookedBox>              
+            </BookedBox> */}
+          </Box>
         </AppContainer>
     )
   }

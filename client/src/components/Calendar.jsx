@@ -6,11 +6,13 @@ import styled from 'styled-components';
 import { ChevronLeft } from '@styled-icons/boxicons-solid/ChevronLeft';
 import { ChevronRight } from '@styled-icons/boxicons-solid/ChevronRight';
 
-// const ChevronLeft = styled(ChevronLeft)`
-//   color: red;
-// `
+const StyledChevronLeft = styled(ChevronLeft)`
+  color: black;
+  
+`;
 import './Calendar.css';
 
+    
 
 const CalendarWrapper = styled.div`
     display: block;
@@ -106,7 +108,7 @@ const Calendar = (props) => {
                 <Column>
                     <div>
                         <div onClick={prevMonth}>
-                            <ChevronLeft/>
+                            <StyledChevronLeft/>
                         </div>
                     </div>
                     <div>

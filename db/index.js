@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/turntable', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://mongo:27017/turntable', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const { Schema } = mongoose;
 

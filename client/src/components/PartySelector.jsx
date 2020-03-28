@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const PartySelectorWrapper = styled.div`
-  display: flex;
-  height: 35px;
-  width: 288px;
-  flex-basis: 100%;
+  display: block;
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
 `;
 
 const SelectWrapper = styled.select`
+  align-items: center;
   display: flex;
   width: 200px;
   height: 30px;
@@ -19,6 +20,17 @@ const SelectWrapper = styled.select`
   background-color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
+
+const Label = styled.div`
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 4px;
+  text-size-adjust: 100%;
+
+`;
+
 const PartySelector = (props) => {
     const defaultState = '';
     const label = 'party-selector';
@@ -28,6 +40,9 @@ const PartySelector = (props) => {
     
     return (   
         <PartySelectorWrapper>
+          <Label>
+            Party Size
+          </Label>
             <label htmlFor={label}>
                 {/* {label} */}
                 <SelectWrapper 

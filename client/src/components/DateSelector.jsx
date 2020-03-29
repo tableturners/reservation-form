@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './Calendar';
+import useToggle from './Hooks/useToggle';
 
 // const DateSelectorWrapper = styled.div`
 //   display: flex;
@@ -9,7 +10,7 @@ import Calendar from './Calendar';
 //   flex-basis: auto;
 // `;
 
-const SelectWrapper = styled.div`
+const SelectWrapper = styled.button`
 width: 100%;
 height: 30px;
 padding: 5px 24px 5px 30px;
@@ -20,21 +21,18 @@ background-color: white;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 10px;
 display: flex;
-order: 3;
-border-bottom: solid 1px;
+justify-content: left;
+border: solid 1px lightgrey;
 `;
 
 const DateSelector = ({ dateSelected, onDateClick }) => { 
-  const [calendar, setCalendar] = useState(false);
+  const [openCalendar, setOpenCalendar] = useToggle(false);
   return (
-    <SelectWrapper onClick={(e) => { 
-        if (e.target.id !== 'cal') {
-            setCalendar(!calendar);
-        }}
-        }>
-      { dateSelected.slice(6, 11) }
-      { calendar ? <Calendar id="cal" dateSelected={dateSelected} onDateClick= {onDateClick}/> : null }
-    </SelectWrapper>
+    <div>
+      <SelectWrapper onClick={setOpenCalendar}>Button
+      </SelectWrapper>
+      { openCalendar && <Calendar/> }
+    </div> 
   );
 };
 

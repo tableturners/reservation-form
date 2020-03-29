@@ -6,6 +6,7 @@ const ButtonWrapper = styled.button`
 `;
 
 const Button = ({ className, children }) => {
+  
     const [activated, setActivated] = React.useState(false);
     return (
       <ButtonWrapper

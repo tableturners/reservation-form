@@ -13,14 +13,6 @@ const AppContainer = styled.div`
   display: block;
   height: 227px;
   font-family: sans-serif;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
   text-size-adjust: 100%;
   width: 288px;
   flex-direction: column;
@@ -34,6 +26,7 @@ const AppContainer = styled.div`
   background: white;
   box-shadow: 0 2px 8px rgba(153,153,153,.4);
   color: -internal-root-color;
+  float: right;
   
 `;
 
@@ -132,26 +125,32 @@ class App extends Component {
     });
   }
 
+  // findTable(this.state) {
+
+  // } 
+
   render() {
     return (
         <AppContainer>
           <Title/>
           <Box>
             <InputBox>
-              <PartyWrapper>
-                <PartySelector partySelected={this.state.partySelected} onPartySelect={this.onPartySelect}/>
-              </PartyWrapper>
-              <DateTimeWrapper>
+              {/* <PartyWrapper> */}
+                <PartySelector onPartySelect={this.onPartySelect}/>
+              {/* </PartyWrapper> */}
+              {/* <DateTimeWrapper> */}
                 <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
                 <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
-              </DateTimeWrapper>
+              {/* </DateTimeWrapper> */}
             </InputBox>
             {/* <ButtonBox>
               <Button/>
             </ButtonBox>
             <BookedBox>              
             </BookedBox> */}
+            <TimesList timeSelected={this.state.timeSelected}/>
           </Box>
+          <Button findTable={this.findTable}/>
         </AppContainer>
     )
   }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './Calendar';
+import useToggle from './Hooks/useToggle';
 
 // const DateSelectorWrapper = styled.div`
 //   display: flex;
@@ -25,21 +26,13 @@ border: solid 1px lightgrey;
 `;
 
 const DateSelector = ({ dateSelected, onDateClick }) => { 
-  const [calendar, setCalendar] = useState(false);
+  const [openCalendar, setOpenCalendar] = useToggle(false);
   return (
-    <SelectWrapper onClick={(e) => { setCalendar(!calendar)
-        }}
-    >
-      <div>
-          { dateSelected }
-
-      </div>
-
-        <div>
-
-          { calendar ? <Calendar dateSelected={dateSelected} onDateClick= {onDateClick}/> : null }
-        </div>
-    </SelectWrapper>
+    <div>
+      <SelectWrapper onClick={setOpenCalendar}>Button
+      </SelectWrapper>
+      { openCalendar && <Calendar/> }
+    </div> 
   );
 };
 

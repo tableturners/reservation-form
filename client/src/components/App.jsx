@@ -13,14 +13,6 @@ const AppContainer = styled.div`
   display: block;
   height: 227px;
   font-family: sans-serif;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
   text-size-adjust: 100%;
   width: 288px;
   flex-direction: column;

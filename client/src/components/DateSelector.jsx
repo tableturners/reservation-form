@@ -9,7 +9,7 @@ import Calendar from './Calendar';
 //   flex-basis: auto;
 // `;
 
-const SelectWrapper = styled.div`
+const SelectWrapper = styled.button`
 width: 100%;
 height: 30px;
 padding: 5px 24px 5px 30px;
@@ -20,20 +20,25 @@ background-color: white;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 10px;
 display: flex;
-order: 3;
-border-bottom: solid 1px;
+justify-content: left;
+border: solid 1px lightgrey;
 `;
 
 const DateSelector = ({ dateSelected, onDateClick }) => { 
   const [calendar, setCalendar] = useState(false);
   return (
-    <SelectWrapper onClick={(e) => { 
-        if (e.target.id !== 'cal') {
-            setCalendar(!calendar);
+    <SelectWrapper onClick={(e) => { setCalendar(!calendar)
         }}
-        }>
-      { dateSelected.slice(6, 11) }
-      { calendar ? <Calendar id="cal" dateSelected={dateSelected} onDateClick= {onDateClick}/> : null }
+    >
+      <div>
+          { dateSelected }
+
+      </div>
+
+        <div>
+
+          { calendar ? <Calendar dateSelected={dateSelected} onDateClick= {onDateClick}/> : null }
+        </div>
     </SelectWrapper>
   );
 };

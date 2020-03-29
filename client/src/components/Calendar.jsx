@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { format, addMonths, subMonths, addDays, startOfWeek, startOfMonth, endOfMonth, endOfWeek,
      isSameMonth, isSameDay, toDate} from 'date-fns';
@@ -7,39 +6,51 @@ import { ChevronLeft } from '@styled-icons/boxicons-solid/ChevronLeft';
 import { ChevronRight } from '@styled-icons/boxicons-solid/ChevronRight';
 
 const StyledChevronLeft = styled(ChevronLeft)`
-  color: black;
-  
+    color: black;
+    height: 16px;
+    display: flex;
+    flex-direction: end;
+    &:hover {
+        border: solid 1px red;
+    }
 `;
-import './Calendar.css';
 
-    
+const StyledChevronRight = styled(ChevronRight)`
+    color: black;
+    height: 16px;
+    display: flex;
+    flex-direction: left;
+    &:hover {
+        border: solid 1px red;
+    }
+
+`;
 
 const CalendarWrapper = styled.div`
+    box-sizing: border-box;
     display: block;
-    width: 90%;
+    width: 100%;
     background: white;
     border: 1px solid lightgray;
     height: 100px;
     margin:0 auto;
+    
 `;
 
 const Header = styled.div`
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space evenly;
     width: 100%;
-    display: block;
-    width: 100%;
-    padding: 1.75em 0;
+    padding: 0.75em 0;
     border-bottom: 1px solid lightgray;
     background: white;
     text-transform: uppercase;
-    font-weight: 700;
-    font-size: 115%;
-    padding: 1.5em 0;
-    border-bottom: 1px solid lightgray;
+    font-weight: 400;
+    font-size: 75%;
+    padding: 0.5em 0;
+    border: 1px solid lightgray;
 `;
 const Body = styled.div`
     font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -47,6 +58,7 @@ const Body = styled.div`
     font-weight: 300;
     line-height: 1.5;
     position: relative;
+
 `;
 const Row = styled.div`
     margin: 0;
@@ -57,31 +69,38 @@ const Row = styled.div`
     width: 100%;
 `;
 
-const Number = styled.span`
-    position: absolute;
-    font-size: 82.5%;
-    line-height: 1;
-    top: .75em;
-    right: .75em;
+const Days = styled.span`
+    text-transform: uppercase;
     font-weight: 700;
+    color: gray;
+    font-size: 70%;
+    padding: .75em 0;
+    border: 1px solid lightgray;
 `;
 
-const Cell = styled.div`
+const DaysWrapper = styled.div`
+    display: flex:
+    flex-direction: row;
+
+`;
+const Cell = styled.span`
     position: relative;
-    height: 6em;
-    border-right: 1px solid lightgray;
+    border: 1px solid lightgray;
     overflow: hidden;
     cursor: pointer;
     background: white;
     transition: 0.25s ease-out;
-`;
-
-const Column = styled.div`
+    &:hover {
+        border: solid 1px red;
+    }
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
-    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+
 `;
+
 const Calendar = (props) => {
     const [currentDate, setCurrentDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState(new Date())
@@ -95,32 +114,26 @@ const Calendar = (props) => {
         setCurrentDate(subMonths(currentDate, 1));
     }
     const onClickEvent = day => {
-        let dayString = JSON.stringify(day)
-        console.log('clicked on date', dayString.slice(0, 11), typeof dayString )
+        const dateFormat = 'MMM d';
+        let dayFormatted = format(day, dateFormat)
         setSelectedDate(day);
-        onDateClick(dayString)
+        onDateClick(dayFormatted)
     }
 
     const header = () => {
         const dateFormat = 'MMMM yyyy';
         return (
-            <Header>
-                <Column>
-                    <div>
-                        <div onClick={prevMonth}>
-                            <StyledChevronLeft/>
-                        </div>
-                    </div>
-                    <div>
-                        <span>{format(currentDate, dateFormat)}</span>
-                    </div>
-                    <div>
-                        <div onClick={nextMonth}>
-                            <ChevronRight/>
-                        </div>
-                    </div>
-                </Column>
-            </Header> 
+            <div>
+                <span onClick={(e) => {e.stopPropagation(); prevMonth()}}>
+                    <StyledChevronLeft/>
+                </span>
+                <span>
+                    {format(currentDate, dateFormat)}
+                </span>
+                <span onClick={(e) => {e.stopPropagation(); nextMonth()}}>
+                    <StyledChevronRight/>
+                </span>
+            </div> 
         )
     }
     const daysOfWeek = () => {
@@ -130,12 +143,12 @@ const Calendar = (props) => {
 
         for (let i = 0; i < 7; i++) {
             days.push(
-                <div key={i}>
+                <Days key={i}>
                     {format(addDays(startDate, i), dateFormat)}
-                </div>
+                </Days>
             )
         }
-        return <div>{days}</div>
+        return <span>{days}</span>
     }
 
     const cells = () => {
@@ -158,13 +171,13 @@ const Calendar = (props) => {
 
                 days.push(
                     <Cell
-                        className={`column cell ${!isSameMonth(day, monthStart)
-                        ? "disabled" : isSameDay(day, selectedDate) 
-                        ? "selected" : "" }`} 
+                        // className={`column cell ${!isSameMonth(day, monthStart)
+                        // ? "disabled" : isSameDay(day, selectedDate) 
+                        // ? "selected" : "" }`} 
                         key={day} 
                         onClick={() => onClickEvent(toDate(cloneDay))}
                     > 
-                        <span>{formattedDate}</span>
+                        {formattedDate}
                     </Cell>  
                 );
                 
@@ -176,14 +189,16 @@ const Calendar = (props) => {
             days = [];
         };
 
-       return <Body>{rows}</Body>;
+       return <div>{rows}</div>;
     }
     
     return (
         <CalendarWrapper>
-            <div>{header()}</div>
-            <div>{daysOfWeek()}</div>
-            <div>{cells()}</div>
+            <Body>
+                <Header>{header()}</Header>
+                <Row>{daysOfWeek()}</Row>
+                <Body>{cells()}</Body>
+            </Body>
         </CalendarWrapper>
     )  
     

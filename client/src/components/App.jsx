@@ -34,9 +34,8 @@ const Header = styled.div`
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #d8d9db;
-  /* border-bottom: 1px solid; */
-
 `;
+
 const Box = styled.div`
   padding: 8px 16px 8px 16px;
   margin-bottom:16px;
@@ -44,72 +43,39 @@ const Box = styled.div`
 `; 
 
 const InputBox = styled.div`
-padding-top: 8px;
-  /* clear: both;
-  display: flex;
-  flex-direction: column;
   padding-top: 8px;
-  max-height: 150px; */
-
 `;
 
 const PartyWrapper = styled.div`
-  /* display: block;
-  flex-basis: 50%;
-  flex-grow: 1;
-  flex-shrink: 1; */
-  /* width: 100%; */
+  
 `;
 
 const DateTimeWrapper = styled.div`
-margin-top: 8px;
-display: flex;
-flex-direction: row;
-
-
-  /* display: flex;
-  flex-basis: 100%;
-  flex-grow: 1;
-  flex-shrink: 1;
-  margin-left: 8px; */
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
 `;
+
 const Label = styled.div`
-display: block;
+  display: block;
   padding-bottom: 4px;
   font-size: 14px;
   width: 100%;  
 `;
 const DateWrapper = styled.div`
-width: 100%;
-  /* display: block;
-  flex-basis: 50%;
-  flex-grow: 1;
-  flex-shrink: 1; */
-
+  width: 100%;
 `;
 
 const TimeWrapper = styled.div`
-width: 100%;
+  width: 100%;
 `;
 
 const ReserveButtonWrapper = styled.div`
   margin-top: 16px;
   display: flex;
   justify-content: center;
-  /* box-sizing: border-box; */
 `;
-  // const Button = styled.button`
-  //   font-family: sans-serif;
-  //   font-size: 1rem;
-  //   border: none;
-  //   border-radius: 5px;
-  //   padding: 7px  10px;
-  //   background: red;
-  //   color: #fff;
-  //   &:hover {
-  //     background: green;
-  //   }
-  // `;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -164,36 +130,23 @@ class App extends Component {
           <Box>
             <InputBox>
               <PartyWrapper>
-                <Label>Party Size
-                </Label>
-                  <PartySelector onPartySelect={this.onPartySelect}/>
-
+                <Label>Party Size</Label>
+                <PartySelector onPartySelect={this.onPartySelect}/>
               </PartyWrapper>
               <DateTimeWrapper>
                 <DateWrapper>
-                <Label>Date
-                </Label>
+                  <Label>Date</Label>
                   <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
-
                 </DateWrapper>
                 <TimeWrapper>
-                <Label>Time
-                </Label>
-
-                <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
+                  <Label>Time</Label>
+                  <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
                 </TimeWrapper>
-
               </DateTimeWrapper>
             </InputBox>
-            {/* <ButtonBox>
-              <Button/>
-            </ButtonBox>
-            <BookedBox>              
-            </BookedBox> */}
             <ReserveButtonWrapper>
             {/* <TimesList timeSelected={this.state.timeSelected}/> */}
                 <Button findTable={this.findTable}/>
-
             </ReserveButtonWrapper>
           </Box>
         </AppContainer>

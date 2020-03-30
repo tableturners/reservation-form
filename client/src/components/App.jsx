@@ -10,80 +10,75 @@ import Button from './Button.jsx';
 import TimesList from './TimesList';
 
 const AppContainer = styled.div`
-  display: block;
-  height: 227px;
-  font-family: sans-serif;
-  text-size-adjust: 100%;
-  width: 288px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: baseline;
-  align-content: space-around;
-  margin-top: 32px;
-  position: sticky;
-  top: 75px;
-  background: white;
   box-shadow: 0 2px 8px rgba(153,153,153,.4);
-  color: -internal-root-color;
+  border: 1px solid #e2e2e2;
+  border-radius: 1px;
+  height: 305px;
+  width: 320px;
+  background: #ffffff;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  text-align: start;
   float: right;
+  position: sticky;
   
 `;
 
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0px 16px 0px 16px;
+  width: 288px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #d8d9db;
+`;
+
 const Box = styled.div`
-  padding: 8px 16px 16px 16px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  background-color: #fff;
-  margin-bottom: 16px;
+  padding: 8px 16px 8px 16px;
+  margin-bottom:16px;
   display: block;
 `; 
 
 const InputBox = styled.div`
-  clear: both;
-  display: flex;
-  flex-direction: column;
   padding-top: 8px;
-  max-height: 150px;
-
 `;
 
 const PartyWrapper = styled.div`
-  display: block;
-  flex-basis: 50%;
-  flex-grow: 1;
-  flex-shrink: 1;
+  
 `;
 
 const DateTimeWrapper = styled.div`
+  margin-top: 8px;
   display: flex;
-  flex-basis: 100%;
-  flex-grow: 1;
-  flex-shrink: 1;
-  margin-left: 8px;
+  flex-direction: row;
 `;
 
-const DateWrapper = styled.div`
+const Label = styled.div`
   display: block;
-  flex-basis: 50%;
-  flex-grow: 1;
-  flex-shrink: 1;
-
+  padding-bottom: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;  
+`;
+const DateWrapper = styled.div`
+  width: 100%;
+  margin-right: 6px;
 `;
 
+const TimeWrapper = styled.div`
+  width: 100%;
+  margin-left: 6px;
+`;
 
-  // const Button = styled.button`
-  //   font-family: sans-serif;
-  //   font-size: 1rem;
-  //   border: none;
-  //   border-radius: 5px;
-  //   padding: 7px  10px;
-  //   background: red;
-  //   color: #fff;
-  //   &:hover {
-  //     background: green;
-  //   }
-  // `;
+const ReserveButtonWrapper = styled.div`
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -132,25 +127,31 @@ class App extends Component {
   render() {
     return (
         <AppContainer>
-          <Title/>
+          <Header>
+            <Title/>
+          </Header>
           <Box>
             <InputBox>
-              {/* <PartyWrapper> */}
+              <PartyWrapper>
+                <Label>Party Size</Label>
                 <PartySelector onPartySelect={this.onPartySelect}/>
-              {/* </PartyWrapper> */}
-              {/* <DateTimeWrapper> */}
-                <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
-                <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
-              {/* </DateTimeWrapper> */}
+              </PartyWrapper>
+              <DateTimeWrapper>
+                <DateWrapper>
+                  <Label>Date</Label>
+                  <DateSelector dateSelected={this.state.dateSelected} onDateClick={this.onDateClick}/>
+                </DateWrapper>
+                <TimeWrapper>
+                  <Label>Time</Label>
+                  <TimeSelector timeSelected={this.state.timeSelected} onTimeSelect={this.onTimeSelect}/>
+                </TimeWrapper>
+              </DateTimeWrapper>
             </InputBox>
-            {/* <ButtonBox>
-              <Button/>
-            </ButtonBox>
-            <BookedBox>              
-            </BookedBox> */}
-            <TimesList timeSelected={this.state.timeSelected}/>
+            <ReserveButtonWrapper>
+            {/* <TimesList timeSelected={this.state.timeSelected}/> */}
+                <Button findTable={this.findTable}/>
+            </ReserveButtonWrapper>
           </Box>
-          <Button findTable={this.findTable}/>
         </AppContainer>
     )
   }

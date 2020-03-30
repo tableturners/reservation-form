@@ -60,14 +60,17 @@ const Label = styled.div`
   display: block;
   padding-bottom: 4px;
   font-size: 14px;
+  font-weight: 500;
   width: 100%;  
 `;
 const DateWrapper = styled.div`
   width: 100%;
+  margin-right: 6px;
 `;
 
 const TimeWrapper = styled.div`
   width: 100%;
+  margin-left: 6px;
 `;
 
 const ReserveButtonWrapper = styled.div`

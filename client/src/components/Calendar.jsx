@@ -13,6 +13,8 @@ const StyledChevronLeft = styled(ChevronLeft)`
     &:hover {
         border: solid 1px red;
     }
+    border-radius: 50%;
+    /* flex-grow: 1; */
 `;
 
 const StyledChevronRight = styled(ChevronRight)`
@@ -23,46 +25,53 @@ const StyledChevronRight = styled(ChevronRight)`
     &:hover {
         border: solid 1px red;
     }
+    border-radius: 50%;
+    /* flex-grow: 1; */
 
 `;
 
 const CalendarWrapper = styled.div`
-    box-sizing: border-box;
+    /* padding-top: 16px;
+    padding-bottom: 16px;
+    margin-left: 1px;
+    margin-right: 1px; */
+    /* /* box-sizing: border-box;
     display: block;
     width: 100%;
-    background: white;
+    background-color: #d8d9db;
     border: 1px solid lightgray;
-    height: 100px;
-    margin:0 auto;
+    height: 100px; */ 
+    /* margin:0 auto; */
     
 `;
 
 const Header = styled.div`
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space evenly;
+    justify-content: space-between;
     width: 100%;
-    padding: 0.75em 0;
-    border-bottom: 1px solid lightgray;
-    background: white;
     text-transform: uppercase;
     font-weight: 400;
     font-size: 75%;
-    padding: 0.5em 0;
-    border: 1px solid lightgray;
 `;
-const Body = styled.div`
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+const Column = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: left; */
+    flex-direction: row;
+    /* width: 100%; */
+    /* font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-size: 1em;
     font-weight: 300;
-    line-height: 1.5;
-    position: relative;
+    line-height: 1.5; */
+    background-color: #d8d9db;
+
 
 `;
+
+
 const Row = styled.div`
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -74,8 +83,11 @@ const Days = styled.span`
     font-weight: 700;
     color: gray;
     font-size: 70%;
-    padding: .75em 0;
-    border: 1px solid lightgray;
+    /* display: flex; */
+    /* display: flex;
+    flex-direction: column; */
+    /* padding: .75em 0; */
+    /* border: 1px solid lightgray; */
 `;
 
 const DaysWrapper = styled.div`
@@ -88,7 +100,6 @@ const Cell = styled.span`
     border: 1px solid lightgray;
     overflow: hidden;
     cursor: pointer;
-    background: white;
     transition: 0.25s ease-out;
     &:hover {
         border: solid 1px red;
@@ -104,7 +115,7 @@ const Cell = styled.span`
 const Calendar = (props) => {
     const [currentDate, setCurrentDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState(new Date())
-    const { onDateClick } = props;
+    const { onDateClick, closeCalendar } = props;
     
     const nextMonth = () => {
         setCurrentDate(addMonths(currentDate, 1));
@@ -118,24 +129,20 @@ const Calendar = (props) => {
         let dayFormatted = format(day, dateFormat)
         setSelectedDate(day);
         onDateClick(dayFormatted)
+        closeCalendar();
     }
 
     const header = () => {
         const dateFormat = 'MMMM yyyy';
         return (
-            <div>
-                <span onClick={(e) => {e.stopPropagation(); prevMonth()}}>
-                    <StyledChevronLeft/>
-                </span>
-                <span>
+            <Header>
+                    <StyledChevronLeft onClick={(e) => {e.stopPropagation(); prevMonth()}}/>
                     {format(currentDate, dateFormat)}
-                </span>
-                <span onClick={(e) => {e.stopPropagation(); nextMonth()}}>
-                    <StyledChevronRight/>
-                </span>
-            </div> 
+                    <StyledChevronRight onClick={(e) => {e.stopPropagation(); nextMonth()}}/>
+            </Header> 
         )
     }
+
     const daysOfWeek = () => {
         const dateFormat = 'eee ';
         const days = [];
@@ -148,7 +155,7 @@ const Calendar = (props) => {
                 </Days>
             )
         }
-        return <span>{days}</span>
+        return <Column>{days}</Column>
     }
 
     const cells = () => {
@@ -194,11 +201,17 @@ const Calendar = (props) => {
     
     return (
         <CalendarWrapper>
-            <Body>
-                <Header>{header()}</Header>
-                <Row>{daysOfWeek()}</Row>
-                <Body>{cells()}</Body>
-            </Body>
+            {/* <Body> */}
+                
+                {header()}
+            
+                {/* <DaysWrapper> */}
+                {daysOfWeek()}
+                {/* </DaysWrapper> */}
+                {/* <Cell> */}
+                {cells()}
+                {/* </Cell> */}
+            {/* </Body> */}
         </CalendarWrapper>
     )  
     

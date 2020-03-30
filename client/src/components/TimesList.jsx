@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components'
 
 const TimeSelectorWrapper = styled.div`
-    padding: 1em;
+    /* padding: 1em;
     margin: 1em;
     border: 1px solid grey;
     background-color: #f1f2f4;
-    flex-basis: 25%;
+    flex-basis: 25%; */
 
 `;
 const TimesList = (props) => {

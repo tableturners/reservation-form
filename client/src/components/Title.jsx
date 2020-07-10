@@ -2,13 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TitleWrapper = styled.div`
-  font-size: 21px;
-  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,Segoe UI Symbol;
+  /* height: 20%; */
+  margin: 0;
+  padding: 0rem 5.6rem;
+  font-size: 2rem;
+  font-family: ${props => props.theme.font};
+  font-weight: 700;
+  border-bottom: 1px solid ${props => props.theme.greyColor};
 `;
 
 const Title = () => (
   <TitleWrapper>
-    Make a Reservation
+    <span>Make a Reservation</span>
   </TitleWrapper>
 );
 

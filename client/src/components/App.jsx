@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 import { RestaurantProvider } from '../contexts/RestaurantContext';
 import ReservationForm from './ReservationForm';
-
+import { ThemeProvider } from 'styled-components';
+  
 import styled from 'styled-components';
+import * as theme from '../theme/theme';
 
 const App = () => {
   const [restaurants, setRestaurants] = useState([
@@ -15,7 +17,9 @@ const App = () => {
 
   return (
     <RestaurantProvider value={{ restaurants }}>
-      <ReservationForm />
+      <ThemeProvider theme={theme}>
+        <ReservationForm />
+      </ThemeProvider>
     </RestaurantProvider>
   )
 }

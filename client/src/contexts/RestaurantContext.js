@@ -1,6 +1,6 @@
-import React, { createContext } from 'react';
+import React from 'react';
 
-const RestaurantContext = createContext();
+const RestaurantContext = React.createContext();
 
 export const RestaurantProvider = RestaurantContext.Provider;
 export const RestaurantConsumer = RestaurantContext.Consumer;

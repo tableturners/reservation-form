@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
-import RestaurantProvider from '../contexts/RestaurantContext';
+import { RestaurantProvider } from '../contexts/RestaurantContext';
 import ReservationForm from './ReservationForm';
 
 import styled from 'styled-components';
-
-
 
 const App = () => {
   const [restaurants, setRestaurants] = useState([
@@ -15,11 +13,9 @@ const App = () => {
     
   ]);
 
-
-
   return (
-    <RestaurantProvider value={ restaurants }>
-      <ReservationForm/>
+    <RestaurantProvider value={{ restaurants }}>
+      <ReservationForm />
     </RestaurantProvider>
   )
 }

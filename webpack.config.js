@@ -36,8 +36,13 @@ module.exports = {
           filename: './index.html',
         }),
       ],
-  mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true,
   },
 };

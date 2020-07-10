@@ -5,7 +5,19 @@ const ReservationForm = () => {
   const { restaurants } = useContext(RestaurantContext);
   
   return (
-    <h1>Reservation Form</h1>
+    <div>
+        <h1>Reservation Form</h1>
+        <div> 
+        {
+            restaurants.map((restaurant) => {
+                return (
+                <li key={restaurant.id}>{restaurant.name}</li>
+                )
+        })
+    }
+            
+        </div>
+    </div>
   )
 }
 

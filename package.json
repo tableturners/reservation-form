@@ -4,7 +4,7 @@
   "description": "lets user see the available tables for the restaurants they want to dine at",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --watch",
+    "build": "webpack-dev-server --open",
     "start": "node server/",
     "test": "jest",
     "test:watch": "jest --watch",

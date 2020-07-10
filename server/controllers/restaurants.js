@@ -2,6 +2,7 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res) => {
+        console.log('controller')
         const { id } = req.params;
         // if (req.params.id === undefined) {
             models.restaurants.get(id)

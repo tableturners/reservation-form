@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TitleWrapper = styled.div`
-  /* height: 20%; */
   margin: 0;
   padding: 0rem 5.6rem;
   font-size: 2rem;

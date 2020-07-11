@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './Calendar';
-import useToggle from './Hooks/useToggle';
+import useDropdown from '../hooks/useDropdown';
 
 const StyledButton = styled.button`
   width: 100%;
@@ -17,8 +17,8 @@ const StyledButton = styled.button`
   text-align: left;
 `;
 
-const DateSelector = ({ dateSelected, onDateClick }) => { 
-  const [openCalendar, setOpenCalendar] = useToggle(false);
+const DateSelector = () => {
+  const [date, DateDropdown] = useDropdown('Date', '');
   return (
     <div>
       <StyledButton onClick={setOpenCalendar}>{dateSelected.toString()}

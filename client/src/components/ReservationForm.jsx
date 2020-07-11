@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import Button from './Button';
 import Title from './Title';
 import Footer from './Footer';
+import TimeSelector from './TimeSelector';
+// import DataSelector from './DateSelector';
+import PartySelector from './PartySelector';
 
 const ReservationFormWrapper = styled.section`
   height: 50vh;
@@ -14,13 +17,14 @@ const ReservationFormWrapper = styled.section`
   justify-content: row;
   align-items: center;
   flex-direction: column;
+  font-size: ${props => props.theme.fontSize};
 `
-const InputBox = styled.section`
-  height: 2em;
+const InputBox = styled.div`
   display: flex;
-  justify-content: space-evenly;
   flex-direction: row;
-`
+  justify-content: space-between;
+  margin-bottom: 4rem;
+`;
 
 const ReservationForm = () => {
   const { restaurants } = useContext(RestaurantContext);
@@ -29,12 +33,11 @@ const ReservationForm = () => {
     <ReservationFormWrapper>
         <Title/>
         <InputBox>
-          <div>Box1</div>
-          <div>Box2</div>
-          <div>Box3</div>
+          <TimeSelector />
+          <PartySelector />
         </InputBox>
-        <Button/>
-        <Footer/>
+        <Button />
+        <Footer />
     </ReservationFormWrapper>
   )
 }

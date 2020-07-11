@@ -1,4 +1,5 @@
 export const font = 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif';
+export const fontSize = '16px';
 
 // COLORS
 export const buttonBackgroundColor = 'rgb(218, 54, 67)';

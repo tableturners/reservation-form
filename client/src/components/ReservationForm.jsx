@@ -10,40 +10,64 @@ import PartySelector from './PartySelector';
 import DateSelector from './DateSelector';
 
 const ReservationFormWrapper = styled.div`
+  display: block;
   height: 50vh;
   width: 50vw;
+  max-width: 718px;
+  padding: 1rem 1rem;
   box-shadow: 0 2px 8px rgba(153,153,153,.4);
   background-color: ${props => props.theme.whiteColor};
-  display: flex;
-  justify-content: row;
-  align-items: center;
-  flex-direction: column;
   font-size: ${props => props.theme.fontSize};
-  /* @media only screen and (max-width: 768px) {
-    width: 100%;
-  } */
 `
 const TitleWrapper = styled.div`
-  /* padding: 1rem; */
+  display: flex;
+  justify-content: center;
   margin: 0;
-  padding: 0rem 5.6rem;
-  font-size: 2rem;
+  padding: 0 1rem;
+  font-size: 1.5rem;
   font-family: ${props => props.theme.font};
-  font-weight: 700;
+  font-weight: 600;
+  /* margin-bottom: 1rem; */
   border-bottom: 1px solid ${props => props.theme.greyColor};
-
-`;
-const InputBox = styled.div`
-  margin-bottom: 4rem;
+  position: relative;
 `;
 
 const InputBoxWrapper = styled.div`
- display: flex;
- flex-direction: column;
+  display: block;
+  padding: .5rem 1rem 1rem;
+
+`;
+
+const InputBox = styled.div`
+  transition: max-height .4s ease 0s;
+  max-height: 500px;
+  overflow: hidden;
+  padding-top: 1rem;
+  /* margin-bottom: 4rem; */
+`;
+
+
+const PartySelectorWrapper = styled.div`
+  /* display: flex; */
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50%;
+
+`;
+
+const DateAndTimeWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
 `;
 const FooterWrapper = styled.div`
-  display: flex;
+  margin: 1rem auto 0;
+  display: block;
+  position: absolute;
   flex-direction: column;
+  justify-content: center;
 
 `;
 
@@ -61,17 +85,21 @@ const ReservationForm = () => {
       </TitleWrapper>
       <InputBoxWrapper>
         <InputBox>
-          <TimeSelector />
-          <PartySelector />
-          <DateSelector />
+          <PartySelectorWrapper>
+            <PartySelector />
+          </PartySelectorWrapper>
+          <DateAndTimeWrapper>
+            <TimeSelector />
+            <DateSelector />
+          </DateAndTimeWrapper>
         </InputBox>
+        <FooterWrapper>
+          <Button />
+          <FooterContainer>
+            <Footer />
+          </FooterContainer>
+        </FooterWrapper>
       </InputBoxWrapper>
-      <FooterWrapper>
-        <Button />
-        <FooterContainer>
-          <Footer />
-        </FooterContainer>
-      </FooterWrapper>
     </ReservationFormWrapper>
   )
 }

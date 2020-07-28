@@ -7,7 +7,8 @@ const StyledButton = styled.button`
   background-color: #da3743;
   color: #fff;
   cursor: pointer;
-  width: 100%;
+  width: 18rem;
+  display: inline-block;
   /* height: 100%; */
 
 `;

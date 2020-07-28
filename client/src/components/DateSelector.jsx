@@ -4,8 +4,12 @@ import Calendar from './Calendar';
 import StyledArrow from '../theme/icons';
 
 const DateContainer = styled.div`
-  width: 200px;
-  padding: .5rem;
+  width: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50%;
+  margin-left: .5rem;
+  position: relative;
 `;
 
 const DateHeader = styled.button`
@@ -13,6 +17,7 @@ const DateHeader = styled.button`
   width: 100%;
   border: none;
   background: none;
+  text-align: left;
   cursor: pointer;
   border-bottom: 1px solid ${props => props.theme.greyColor}; 
   font-size: .875rem;

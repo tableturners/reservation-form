@@ -5,3 +5,4 @@ export const fontSize = '16px';
 export const buttonBackgroundColor = 'rgb(218, 54, 67)';
 export const whiteColor = 'rgb(255, 255, 255)';
 export const greyColor = 'rgb(216, 217, 219)';
+

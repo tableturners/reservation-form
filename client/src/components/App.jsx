@@ -15,8 +15,38 @@ const App = () => {
     
   ]);
 
+  const [reservations, setReservations] = useState([
+    {
+      id: 1, 
+      restaurantID: 1, 
+      info: {
+        name: 'John Doe',
+        party: 4,
+        date: "Fri Oct 16 2020 06:02:46 GMT-0700 (Pacific Daylight Time)"
+      } 
+    },
+    {
+      id: 2, 
+      restaurantID: 2, 
+      info: {
+        name: 'Mary Smith',
+        party: 8,
+        date: "Sat Oct 17 2020 06:02:46 GMT-0700 (Pacific Daylight Time)"
+      } 
+    },
+    {
+      id: 3, 
+      restaurantID: 3, 
+      info: {
+        name: 'Clint Doe',
+        party: 3,
+        date: "Sun Oct 18 2020 06:02:46 GMT-0700 (Pacific Daylight Time)"
+      } 
+    },
+  ])
+
   return (
-    <RestaurantProvider value={{ restaurants }}>
+    <RestaurantProvider value={{ restaurants, reservations }}>
       <ThemeProvider theme={theme}>
         <ReservationForm />
       </ThemeProvider>

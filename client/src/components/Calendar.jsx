@@ -115,7 +115,7 @@ const Cell = styled.span`
 const Calendar = (props) => {
     const [currentDate, setCurrentDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState(new Date())
-    const { onDateClick, closeCalendar } = props;
+    const { selectOption } = props;
     
     const nextMonth = () => {
         setCurrentDate(addMonths(currentDate, 1));
@@ -128,8 +128,7 @@ const Calendar = (props) => {
         const dateFormat = 'MMM d';
         let dayFormatted = format(day, dateFormat)
         setSelectedDate(day);
-        onDateClick(dayFormatted)
-        closeCalendar();
+        selectOption(dayFormatted);
     }
 
     const header = () => {

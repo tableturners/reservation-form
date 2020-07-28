@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>You are in luck!</div>
+        <div>Booked 5 times today</div>
     )
 }
 

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import RestaurantContext from '../contexts/RestaurantContext';
 
 import styled from 'styled-components';
 import StyledArrow from '../theme/icons';
@@ -7,7 +8,6 @@ const times = ['12:00 AM', '12:30 AM', '1:00 AM', '1:30 AM', '2:00 AM', '2:30 AM
 
 const DropdownContainer = styled.div`
   width: 100%;
-  padding: .5rem;
 `;
 
 const DropdownHeader = styled.button`
@@ -34,7 +34,6 @@ const DropdownOptionsContainer = styled.div`
 `;
 const DropdownOptions = styled.ul`
   font-size: .875rem;
-
   padding-left: 1em;
   background: ${props => props.theme.greyColor};
   &:first-child {
@@ -50,6 +49,7 @@ const DropdownItem = styled.li`
 `;
 
 const PartySelector = () => {
+  const { setParty } = useContext(RestaurantContext);
   const [loading, setLoading] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +60,7 @@ const PartySelector = () => {
   
   const selectOption = (option) => {
     setSelectedOption(option);
+    setParty(selectedOption);
     setIsOpen(false);
   }
   return (

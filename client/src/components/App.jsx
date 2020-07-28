@@ -14,7 +14,7 @@ const App = () => {
    {name: 'Three', id: 3},
     
   ]);
-
+  
   const [reservations, setReservations] = useState([
     {
       id: 1, 
@@ -45,8 +45,13 @@ const App = () => {
     },
   ])
 
+  const [party, setParty] = useState(null);
+  const [time, setTime] = useState(null);
+  const [date, setDate] = useState(null);
+  
+
   return (
-    <RestaurantProvider value={{ restaurants, reservations }}>
+    <RestaurantProvider value={{ restaurants, reservations, setParty, setDate, setTime }}>
       <ThemeProvider theme={theme}>
         <ReservationForm />
       </ThemeProvider>

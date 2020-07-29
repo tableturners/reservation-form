@@ -1,5 +1,7 @@
 const Restaurant = require('../../db');
 
-module.exports = {
-    get: (id) => Restaurant.findById(id)
-};
+const getRestaurantById = (id) => {
+    Restaurant.findById(id)
+}
+
+module.export = { getRestaurantById };

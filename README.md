@@ -2,7 +2,6 @@
 
 ## A clean, beautiful and responsive reservation form for booking restaurants
 
-
 ## Features
 
 ⚡️ Responsive UI built with React\

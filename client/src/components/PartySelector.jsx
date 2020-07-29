@@ -29,8 +29,8 @@ const DropdownHeader = styled.button`
 `;
 
 const DropdownOptionsContainer = styled.div`
+  position: relative;
   /* width: 100%; */
-
 `;
 const DropdownOptions = styled.ul`
   font-size: .875rem;

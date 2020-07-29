@@ -28,7 +28,11 @@ const TimeHeader = styled.button`
   }
 `;
 
-const TimeOptionsContainer = styled.div``;
+const TimeOptionsContainer = styled.div`
+  position: absolute;
+  width: inherit;
+  display: block;
+`;
 
 const TimeOptions = styled.ul`
   cursor: pointer;
@@ -40,6 +44,8 @@ const TimeOptions = styled.ul`
   }
   font-size: .875rem;
   line-height: 1.15;
+  white-space: nowrap;
+  width: 50%;
 `;
 
 const TimeItem = styled.li`

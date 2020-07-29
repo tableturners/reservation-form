@@ -25,6 +25,7 @@ const ReservationFormWrapper = styled.div`
   box-shadow: 0 2px 8px rgba(153,153,153,.4);
   background-color: ${props => props.theme.whiteColor};
   font-size: ${props => props.theme.fontSize};
+  overflow: hidden;
 `
 const TitleWrapper = styled.div`
   display: flex;

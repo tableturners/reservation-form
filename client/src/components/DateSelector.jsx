@@ -9,7 +9,6 @@ const DateContainer = styled.div`
   flex-shrink: 1;
   flex-basis: 50%;
   margin-left: .5rem;
-  position: relative;
 `;
 
 const DateHeader = styled.button`

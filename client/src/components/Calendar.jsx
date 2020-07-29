@@ -31,6 +31,7 @@ const StyledChevronRight = styled(ChevronRight)`
 `;
 
 const CalendarWrapper = styled.div`
+    position: absolute;
     /* padding-top: 16px;
     padding-bottom: 16px;
     margin-left: 1px;

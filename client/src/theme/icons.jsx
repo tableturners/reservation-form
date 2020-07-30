@@ -1,9 +1,9 @@
 import react from 'react';
 import styled from 'styled-components';
 import { KeyboardArrowDown } from '@styled-icons/material-rounded/KeyboardArrowDown';
-import { ChevronLeft } from '@styled-icons/boxicons-solid/ChevronLeft';
-import { ChevronRight } from '@styled-icons/boxicons-solid/ChevronRight';
-import { Graph } from '@styled-icons/octicons/Graph';
+// import { ChevronLeft } from '@styled-icons/boxicons-solid/ChevronLeft';
+// import { ChevronRight } from '@styled-icons/boxicons-solid/ChevronRight';
+// import { Graph } from '@styled-icons/octicons/Graph';
 
 const StyledArrow = styled(KeyboardArrowDown)`
   width: 1em;

@@ -42,6 +42,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
+    writeToDisk: true,
     contentBase: './dist',
     hot: true,
   },

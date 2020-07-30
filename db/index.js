@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://mongo:27017/turntable', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('mongodb://localhost:27017/turntable', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/turntable', { useNewUrlParser: true, useUnifiedTopology: true }, (error) => {
+  if (error) console.log(error);
+  console.log('connected to mongoose')
+});
 
 const { Schema } = mongoose;
 
